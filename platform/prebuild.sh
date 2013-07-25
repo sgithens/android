@@ -21,3 +21,12 @@ fi
 
 curl -o app/assets/bridge.node https://raw.github.com/webinos/Webinos-Platform/master/webinos/platform/android/app/assets/bridge.node
 curl -o app/assets/libjninode.so https://raw.github.com/webinos/Webinos-Platform/master/webinos/platform/android/app/assets/libjninode.so
+
+# Fetch jtar
+if [ -f 'app/libs/jtar-1.1.jar' ]; then
+    echo 'jtar already donwloaded!'
+else
+    mkdir -p app/libs
+fi
+
+curl -o app/libs/jtar-1.1.jar http://jtar.googlecode.com/files/jtar-1.1.jar

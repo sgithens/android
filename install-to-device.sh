@@ -30,9 +30,10 @@ else
 fi
 
 echo "Going to put the GPII Javascript source on the device"
-adb shell 'mkdir -p /sdcard/gpii/node_modules'
-adb push $universal '/sdcard/gpii/node_modules/universal'
-adb push gpii.js /sdcard/gpii/
+./prepare-files.sh
+adb push gpii-files.tar.gz /sdcard/
+adb shell "rm -r /sdcard/gpii-files.tar"
+adb shell "cd /sdcard && gunzip gpii-files.tar.gz && tar xvf gpii-files.tar"
 
 echo "Going to fetch and install the node apk"
 curl -O https://raw.github.com/sgithens/gpii-android-test/master/AnodeActivity.apk
